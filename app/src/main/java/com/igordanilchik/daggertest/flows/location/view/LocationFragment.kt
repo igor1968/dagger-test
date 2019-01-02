@@ -60,8 +60,8 @@ class LocationFragment : BaseFragment(), LocationView {
     override fun onDestroy() {
         super.onDestroy()
 
-        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                || ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if (activity?.let { ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_FINE_LOCATION) } == PackageManager.PERMISSION_GRANTED
+                || activity?.let { ActivityCompat.checkSelfPermission(it, Manifest.permission.ACCESS_COARSE_LOCATION) } == PackageManager.PERMISSION_GRANTED) {
 
             map?.isMyLocationEnabled = false
         }
@@ -101,9 +101,11 @@ class LocationFragment : BaseFragment(), LocationView {
     override fun showError(e: Throwable) {
         Timber.e(e, "Error: ")
 
-        Snackbar.make(activity.findViewById(android.R.id.content), "Error: " + e.message, Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
+        activity?.let {
+            Snackbar.make(it.findViewById(android.R.id.content), "Error: " + e.message, Snackbar.LENGTH_LONG)
+            .setAction("Action", null)
+            .show()
+        }
     }
 
     @ProvidePresenter

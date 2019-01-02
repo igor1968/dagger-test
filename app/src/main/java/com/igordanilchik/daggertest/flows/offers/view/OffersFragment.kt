@@ -32,7 +32,7 @@ class OffersFragment: BaseFragment(), OffersView, OffersAdapter.OffersCallback {
 
     override val layoutResID = R.layout.fragment_offers
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView.setHasFixedSize(true)

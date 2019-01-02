@@ -66,8 +66,8 @@ class DaggerApplication : Application() {
 
     companion object {
 
-        operator fun get(context: Context): DaggerApplication {
-            return context.applicationContext as DaggerApplication
+        operator fun get(context: Context?): DaggerApplication {
+            return context?.applicationContext as DaggerApplication
         }
     }
 

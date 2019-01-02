@@ -38,7 +38,7 @@ class CatalogueFragment: BaseFragment(), CatalogueView, CategoriesAdapter.Catego
 
     override val layoutResID = R.layout.fragment_catalogue
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         swipeContainer.setOnRefreshListener(presenter::onRefresh)

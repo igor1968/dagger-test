@@ -56,7 +56,7 @@ class OfferFragment : BaseFragment(), OfferView {
                 Glide.with(this)
                         .load(it)
                         .fitCenter()
-                        .placeholder(ContextCompat.getDrawable(context, R.drawable.ic_image_black_24dp))
+                        .placeholder(context?.let { it1 -> ContextCompat.getDrawable(it1, R.drawable.ic_image_black_24dp) })
                         .crossFade()
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .into(image)
