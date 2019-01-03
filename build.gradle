@@ -18,8 +18,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        // need by RxCache
-        maven { url "https://jitpack.io" }
     }
 }
 
